@@ -2,303 +2,305 @@
     --primario: #FEF3E4;
     --primarioOscuro: #FFFFF0;
     --secundario: #FFC0CB;
-    --secundarioOscuro: rgb(233, 287, 22);
     --blanco: #D2B48C;
     --negro: #000;
-
     --fuentePrincipal: "Bebas Neue", sans-serif;
-
 }
 
-html {
+* {
     box-sizing: border-box;
-    font-size: 62.5%;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
-}
-
-/** Globales **/
 body {
     background: var(--primario);
-    font-size: 1.6rem;
-    line-height: 1.5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-
-p {
-    font-size: 1.8rem;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--blanco);
-}
-
-a {
-    text-decoration: none;
-}
-
-.img{
-width: auto;
-}
-
 
 .contenedor {
-    max-width: 120rem;
+    max-width: 1200px;
     margin: 0 auto;
-}
-
-h1, h2, h3 {
-    text-align: center;
-    color: var(--secundario);
-    font-family: var(--fuentePrincipal);
+    padding: 0 20px;
 }
 
 h1 {
-    font-size: 4rem;
-}
-
-h2 {
-    font-size: 3.2rem;
-}
-
-h3 {
-    font-size: 2.4rem;
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuentePrincipal);
+    font-size: 3.5rem;
 }
 
 .header__logo {
-    width: 25rem;
-    height: auto;
     display: block;
-    margin: 3rem auto;
+    max-width: 250px;
+    width: 80%;
+    margin: 20px auto;
 }
 
-/** Header **/
-.header {
-    display: flex;
-    justify-content: center;
-}
-
-
-/** Footer **/
-.footer {
-    background-color: var(--primarioOscuro);
-    padding: 1rem 0;
-    margin-top: 2rem;
-}
-
-.footer__texto {
-    text-align: center;
-    font-family: var(--fuentePrincipal);
-    font-size: 2.2rem;
-}
-
-/** Navegacion **/
 .navegacion {
     background-color: var(--primarioOscuro);
-    padding: 1rem 0;
+    padding: 15px;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 20px;
 }
 
 .navegacion__enlace {
     font-family: var(--fuentePrincipal);
     color: var(--blanco);
-    font-size: 3rem;
+    font-size: 2.5rem;
+    text-decoration: none;
 }
 
-.navegacion__enlace--activo,
-.navegacion__enlace:hover {
+.navegacion__enlace--activo {
     color: var(--secundario);
 }
 
-/** Grid **/
+/* --- LA MAGIA RESPONSIVE FÁCIL ACÁ --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
+    /* Esto le dice: poné columnas de mínimo 280px. Si no entrás, tirate abajo solo */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
 }
 
-@media(min-width: 768px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 2rem;
-        row-gap: 2rem;
-        padding: 1rem;
-    }
-}
-
-
-/** Productos **/
 .producto {
     background-color: var(--primarioOscuro);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.producto__imagen {
-      width: 100%;
-    height: 25rem;
-    object-fit: cover;
+.producto>a {
+    text-decoration: none;
+    color: inherit;
     display: block;
 }
 
+.producto__imagen {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.producto__informacion {
+    padding: 15px;
+    text-align: center;
+}
+
 .producto__nombre {
-    font-size: 4rem;
+    font-family: var(--fuentePrincipal);
+    font-size: 2.5rem;
+    margin: 5px 0;
 }
 
-.producto__precio {
-    font-size: 2.8rem;
-    color: var(--negro);
-}
-
-.producto__nombre,
 .producto__precio {
     font-family: var(--fuentePrincipal);
-    margin: 1rem 0;
+    font-size: 2rem;
+    color: var(--secundario);
+    margin: 0;
+}
+
+.footer {
+    background-color: var(--primarioOscuro);
     text-align: center;
-    line-height: 1.2;
+    padding: 20px;
+    margin-top: 40px;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    color: var(--blanco);
 }
 
-/** Grafico **/
-.grafico {
-    min-height: 30rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    grid-column: 1 / 3;
-}
+/* ===== PRUEBA RESPONSIVE ===== */
 
-.grafico--tortas {
-    grid-row: 2 / 3;
-    grid-column: 1 / 3;
-    background-image: url(../index/img/tortarogel.webp);
-}
-
-.grafico--node {
-    background-image: url(../index/img/tortarogel.webp);
-    grid-row: 4 / 5;
+.footer {
+    background-color: var(--primarioOscuro);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    color: var(--blanco);
 }
 
 @media (min-width: 768px) {
-    .grafico--node {
-        grid-row: 5 / 6;
-        grid-column: 2 / 4;
+    .dos-columnas {
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
 }
 
-/** Nosotros **/
+/* PRODUCTO INDIVIDUAL */
+
+.torta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.torta__imagen {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.torta__contenido {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.formulario_campo {
+    padding: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.formulario_submit {
+    background-color: var(--secundario);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 768px) {
+
+    .torta {
+        grid-template-columns: 1fr;
+    }
+
+    .torta__imagen {
+        height: 350px;
+    }
+
+}
+
+.formulario_submit {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    border: none;
+    padding: 15px;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.formulario_submit:hover {
+    background-color: var(--primarioOscuro);
+}
+
+/* ORDEN PAGINA NOSOTROS */
 
 .nosotros {
     display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 2rem;
-}
-
-@media(min-width: 768px) {
-    .nosotros {
-        grid-template-columns: repeat(2, 1fr) 
-        column-gap 2rem;
-    }
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
 }
 
 .nosotros__imagen {
     width: 100%;
-    max-width: 40rem;
-    height: auto;
-    justify-self: center;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
-@media (min-width: 768px) {
-    .nosotros__imagen {
-        grid-column: 2 / 3;
-    }
-}
 
-/** Bloques **/
 .bloques {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 8rem;
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: 0 2rem;
+    gap: 30px;
 }
 
-@media (min-width:768px) {
-    .bloques {
-        grid-template-columns: repeat(4, 1fr);
-        column-gap: 2rem;
-    }
-}
 
 .bloque {
     text-align: center;
 }
 
 
-.bloque_titulo {
-    margin: 0;
+.bloque_imagen {
+    width: 100px;
+    height: auto;
 }
 
-/** Pagina del producto **/
 
-@media (min-width: 760px) {
-    .torta {
-        display: grid;
-        grid-template-columns: (40rem 1fr);
-        gap: 3rem;
-        align-items: start;
+@media (max-width: 768px) {
+
+    .nosotros {
+        grid-template-columns: 1fr;
     }
+
+    .bloques {
+        grid-template-columns: 1fr;
+    }
+
 }
 
-.formulario {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
+/* AJUSTES FINALES NOSOTROS */
 
-.formulario_campo {
-    border-color: var(--primarioOscuro);
-    border-width: 1rem;
-    border-style: solid;
-    font-size: 2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 1rem;
-}
-
-.formulario_submit {
-    background-color: var(--secundario);
-    border: none;
-    font-size: 2rem;
+.nosotros__contenido p {
     font-family: var(--fuentePrincipal);
-    padding: 2rem;
-    grid-column: 1 / 3;
-    width: 60%;
-    justify-self: center;
-    transition: background-color .3s ease
+    color: var(--blanco);
+    font-size: 1.8rem;
+    line-height: 1.6;
 }
 
-.formulario_submit:hover {
-    font-size: 2.4rem;
-    cursor: pointer;
-    background-color: var(--blanco);
+
+.nosotros__imagen {
+    width: 100%;
+    max-width: 350px;
 }
 
-.torta__imagen{
-    width: 30rem;
-    height: 30rem;
-    object-fit: cover;
-    border-radius: 1rem;
+
+.comprar_titulo {
+    font-family: var(--fuentePrincipal);
+    color: var(--secundario);
+    font-size: 3rem;
+    text-align: center;
 }
 
-.torta{
-    display: flex;
-    gap: 3rem;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
+
+.bloque {
+    text-align: center;
 }
 
-.torta__contenido{
-    flex: 1;
+
+.bloque_imagen {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+
+.bloque__titulo {
+    font-family: var(--fuentePrincipal);
+    color: var(--secundario);
+    font-size: 2.3rem;
+}
+
+
+.bloque p {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 1.5rem;
+    line-height: 1.6;
+}
+
+.nosotros__contenido {
+    grid-column: 1 / -1;
 }
